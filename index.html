@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TripExplore - Explore o Mundo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background-color: #efddf0;
+        }
+        header {
+            background-color: #34093f;
+            color: white;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            margin-left: 20px;
+        }
+        nav {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            background-color: #812995;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        nav a:hover, nav a.active {
+            color: #ec47ce;
+        }
+        .banner {
+            height: 700px;
+            background: url('https://viajarpelomundo.com.br/wp-content/uploads/2022/02/viaje-para-toscana-na-italia.jpeg') no-repeat center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-shadow: 2px 2px 10px black;
+            font-size: 2em;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+        .sections-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            padding: 50px 20px;
+        }
+        .advice, .meetus, .tripme {
+            background-color: rgb(248, 141, 250);
+            padding: 20px;
+            width: 30%;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+        .advice:hover, .meetus:hover, .tripme:hover,
+        .highlight {
+            transform: translateY(-5px);
+        }
+        footer {
+            background-color: #34093f;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            margin-top: 20px;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            document.querySelectorAll("nav a").forEach(link => {
+                link.addEventListener("click", function() {
+                    document.querySelectorAll("nav a").forEach(a => a.classList.remove("active"));
+                    document.querySelectorAll(".tripme, .meetus, .advice").forEach(section => section.classList.remove("highlight"));
+                    this.classList.add("active");
+                    document.querySelector(this.getAttribute("href")).classList.add("highlight");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <div class="logo">TripExplore</div>
+    </header>
+    <nav>
+        <a href="#tripme">Minha Viagem</a>
+        <a href="#meetus">Nos Encontre</a>
+        <a href="#advice">Conselhos</a>
+    </nav>
+    <main>
+        <section class="banner">
+            <h1>Explore novos destinos pela Itália!</h1>
+        </section>
+        <div class="sections-container">
+            <section id="tripme" class="tripme">
+                <h2>Minha Viagem</h2>
+                <p>Descubra roteiros incríveis e planeje sua próxima aventura com TripExplore.</p>
+            </section>
+            <section id="meetus" class="meetus">
+                <h2>Nos Encontre</h2>
+                <p>Conheça nossa equipe e saiba como podemos ajudar você a viajar melhor.</p>
+            </section>
+            <section id="advice" class="advice">
+                <h2>Conselhos</h2>
+                <p>Dicas valiosas para tornar sua viagem inesquecível e sem imprevistos.</p>
+            </section>
+        </div>
+    </main>
+    <footer>
+        <p>&copy; 2025 TripExplore - Todos os direitos reservados.</p>
+        <p>👩‍💻 Site Criado por: Érika Jorge.</p>
+    </footer>
+</body>
+</html>
